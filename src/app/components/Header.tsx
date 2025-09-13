@@ -48,11 +48,7 @@ export default function Header() {
                   {t('testimonials')}
                 </NavigationMenuLink>
               </NavigationMenuItem>
-              <NavigationMenuItem>
-                <NavigationMenuLink href="#blog" className="text-black hover:text-peach-600 transition-colors px-3 py-2 rounded-md hover:bg-peach-50">
-                  {t('blog')}
-                </NavigationMenuLink>
-              </NavigationMenuItem>
+              <NavigationMenuItem></NavigationMenuItem>
               <NavigationMenuItem>
                 <NavigationMenuLink href="#contact" className="text-black hover:text-peach-600 transition-colors px-3 py-2 rounded-md hover:bg-peach-50">
                   {t('contact')}

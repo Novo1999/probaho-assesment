@@ -16,12 +16,14 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
   const metadataByLocale = {
     en: {
-      title: 'Probaho Assessment',
-      description: 'Assessment project for Probaho',
+      title: 'Aura María Medina de Wit - Psychotherapy and Healing',
+      description: 'Specialist in codependency and childhood wounds. 35+ years of experience in transpersonal therapy.',
+      keywords: 'psychotherapy, codependency, childhood wounds, therapy, healing, Aura Medina',
     },
     es: {
-      title: 'Evaluación de Probaho',
-      description: 'Proyecto de evaluación para Probaho',
+      title: 'Aura María Medina de Wit - Psicoterapia y Sanación',
+      description: 'Especialista en codependencia y heridas de la infancia. 35+ años de experiencia en terapia transpersonal.',
+      keywords: 'psicoterapia, codependencia, heridas de infancia, terapia, sanación, Aura Medina',
     },
   }
 

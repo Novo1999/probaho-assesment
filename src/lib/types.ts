@@ -60,4 +60,7 @@ export interface FooterData {
     facebook: string
     twitter: string
   }
+  copyright: string
+  socialTitle: string
+  contactTitle: string
 }

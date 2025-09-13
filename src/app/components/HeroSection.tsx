@@ -19,7 +19,7 @@ export default function HeroSection({ data }: HeroSectionProps) {
 
             <div className="flex flex-col sm:flex-row gap-4">
               <BookingButton text={data.ctaBook} />
-              <LeadMagnetButton text={data.ctaFree} />
+              <LeadMagnetButton className='sm:py-3.5' text={data.ctaFree} />
             </div>
           </div>
 

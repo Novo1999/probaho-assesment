@@ -21,7 +21,7 @@ export default function Footer({ data }: FooterProps) {
           </div>
 
           <div>
-            <h5 className="font-semibold mb-4">Contacto</h5>
+            <h5 className="font-semibold mb-4">{data.contactTitle}</h5>
             <div className="space-y-2 text-gray-300">
               <div className="flex items-center">
                 <Mail className="w-4 h-4 mr-2" />
@@ -39,7 +39,7 @@ export default function Footer({ data }: FooterProps) {
           </div>
 
           <div>
-            <h5 className="font-semibold mb-4">Sígueme</h5>
+            <h5 className="font-semibold mb-4">{data.socialTitle}</h5>
             <div className="space-y-2 text-gray-300">
               <a href={data.social.instagram} className="block hover:text-peach-300">
                 Instagram
@@ -55,7 +55,7 @@ export default function Footer({ data }: FooterProps) {
         </div>
 
         <div className="border-t border-gray-700 mt-8 pt-8 text-center text-gray-400">
-          <p>&copy; 2025 Aura María Medina de Wit. Todos los derechos reservados.</p>
+          <p>{data.copyright}</p>
         </div>
       </div>
     </footer>

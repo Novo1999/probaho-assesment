@@ -1,5 +1,6 @@
 import { Suspense } from 'react'
 
+import BlogSection from '@/app/components/BlogSection'
 import BooksSection from '@/app/components/BookSection'
 import Header from '@/app/components/Header'
 import HeroSection from '@/app/components/HeroSection'
@@ -37,6 +38,7 @@ async function PageContent({ locale }: { locale: string }) {
       <HeroSection data={data.hero} />
       <BooksSection data={data.books} />
       <ServicesSection data={data.services} />
+      <BlogSection />
       <TestimonialsSection data={data.testimonials} />
     </>
   )

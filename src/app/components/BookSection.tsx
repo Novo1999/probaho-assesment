@@ -1,14 +1,21 @@
-import LeadMagnetButton from '@/app/components/LeadMagnetButton'
-import { BooksData } from '@/lib/types'
-import { BookOpen, ChevronRight, Star } from 'lucide-react'
+'use client'
+import LeadMagnetModal from '@/app/components/LeadMagnetModal'
+import { Button } from '@/components/ui/button'
+import { Dialog, DialogContent, DialogTrigger } from '@/components/ui/dialog'
+import { Book, BooksData } from '@/lib/types'
+import { cn } from '@/lib/utils'
+import { BookOpen, Download, Star } from 'lucide-react'
 import Image from 'next/image'
 import Link from 'next/link'
+import { useState } from 'react'
 
 interface BooksSectionProps {
   data: BooksData
 }
 
 export default function BooksSection({ data }: BooksSectionProps) {
+  const [isModalOpen, setIsModalOpen] = useState<Book | null>(null)
+
   return (
     <section id="books" className="py-20 bg-beige-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -20,11 +27,13 @@ export default function BooksSection({ data }: BooksSectionProps) {
         <div className="grid lg:grid-cols-2 gap-8 lg:gap-12">
           {data.items.map((book) => (
             <div key={book.id} className="bg-white rounded-2xl p-6 lg:p-8 shadow-lg hover:shadow-xl transition-shadow">
-              {book.isLatest && (
+              {book.isLatest ? (
                 <div className="inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold bg-peach-200 text-peach-700 mb-4">
                   <Star className="w-3 h-3 mr-1" />
                   {data.latest}
                 </div>
+              ) : (
+                <div className="py-1 mb-4"></div>
               )}
 
               <div className="flex flex-col sm:flex-row lg:flex-col xl:flex-row gap-6">
@@ -42,18 +51,30 @@ export default function BooksSection({ data }: BooksSectionProps) {
                   <h4 className="text-xl sm:text-2xl font-bold text-gray-900 mb-3 lg:mb-4">{book.title}</h4>
                   <p className="text-gray-600 mb-4 lg:mb-6 leading-relaxed text-sm sm:text-base">{book.description}</p>
 
-                  <div className="space-y-3 flex items-start justify-between gap-4 xl:gap-6">
+                  <div className="space-y-3 flex items-start justify-between gap-4 xl:gap-4">
                     <Link
                       href={{ pathname: book.amazonUrl }}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="w-full bg-gradient-to-r from-peach-200 to-rose-200 text-rose-800 py-3 rounded-lg font-semibold hover:shadow-lg transition-all duration-300 flex items-center justify-center text-sm sm:text-base"
+                      className="w-full bg-gradient-to-r from-peach-200 to-rose-200 text-rose-800 !px-4 py-3 lg:py-3 rounded-xl font-semibold text-sm hover:shadow-lg transition-all duration-300 whitespace-nowrap flex items-center justify-center h-full"
                     >
                       {data.buyAmazon}
-                      <ChevronRight className="w-4 h-4 ml-2" />
                     </Link>
 
-                    <LeadMagnetButton text={data.preview} variant="outline" book={book} />
+                    <Dialog open={!!isModalOpen} onOpenChange={() => setIsModalOpen(isModalOpen ? null : book)}>
+                      <DialogTrigger asChild>
+                        <Button
+                          variant="outline"
+                          className={cn(
+                            'w-fit bg-white text-rose-800 !px-4 py-3 lg:py-3 rounded-xl font-semibold text-sm hover:shadow-lg transition-all duration-300 whitespace-nowrap flex items-center justify-center h-full'
+                          )}
+                        >
+                          <Download className="w-5 h-5 mr-2" />
+                          Preview
+                        </Button>
+                      </DialogTrigger>
+                      <DialogContent className="max-w-md min-h-[50vh]">{isModalOpen && <LeadMagnetModal onClose={() => setIsModalOpen(null)} book={isModalOpen} />}</DialogContent>
+                    </Dialog>
                   </div>
                 </div>
               </div>
