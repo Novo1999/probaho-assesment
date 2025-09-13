@@ -1,7 +1,7 @@
 import BookingButton from '@/app/components/BookingButton'
 import LeadMagnetButton from '@/app/components/LeadMagnetButton'
 import { HeroData } from '@/lib/types'
-import { Heart } from 'lucide-react'
+import Image from 'next/image'
 
 interface HeroSectionProps {
   data: HeroData
@@ -24,12 +24,9 @@ export default function HeroSection({ data }: HeroSectionProps) {
           </div>
 
           <div className="relative">
-            <div className="w-full h-96 bg-gradient-to-br from-peach-100 to-sage-100 rounded-3xl flex items-center justify-center">
-              <div className="text-center">
-                <div className="w-32 h-32 bg-white rounded-full flex items-center justify-center mb-4 mx-auto shadow-lg">
-                  <Heart className="w-16 h-16 text-peach-600" />
-                </div>
-                <p className="text-gray-600 text-lg">35+ años de experiencia</p>
+            <div className="w-full h-96 overflow-hidden bg-gradient-to-br from-peach-100 to-sage-100 rounded-3xl flex items-center justify-center">
+              <div className="relative w-full h-full">
+                <Image src="/aura.png" width={1000} height={1000} alt="Aura Medina" className="h-full w-full object-cover object-top" priority />
               </div>
             </div>
           </div>
