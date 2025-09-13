@@ -1,0 +1,93 @@
+{
+  "hero": {
+    "title": "Sana tu Corazón, Transforma tu Vida",
+    "subtitle": "Especialista en Codependencia y Heridas de la Infancia",
+    "description": "Con más de 35 años de experiencia, te guío hacia la sanación profunda y el amor propio. Descubre cómo romper patrones tóxicos y crear relaciones sanas.",
+    "ctaBook": "Reservar Sesión",
+    "ctaFree": "Capítulo Gratuito"
+  },
+  "books": {
+    "title": "Libros que Transforman Vidas",
+    "subtitle": "Guías profundas hacia la sanación emocional",
+    "latest": "Último Libro",
+    "buyAmazon": "Comprar en Amazon",
+    "preview": "Vista Previa",
+    "items": [
+      {
+        "id": 1,
+        "title": "Sanando la Herida Materna",
+        "description": "Una guía profunda para sanar las heridas más profundas de nuestra infancia y encontrar la paz interior.",
+        "amazonUrl": "https://amazon.com/sanando-herida-materna",
+        "isLatest": true
+      },
+      {
+        "id": 2,
+        "title": "Amor o Codependencia",
+        "description": "Descubre la diferencia entre amor verdadero y patrones codependientes que dañan nuestras relaciones.",
+        "amazonUrl": "https://amazon.com/amor-o-codependencia",
+        "isLatest": false
+      }
+    ]
+  },
+  "services": {
+    "title": "Servicios de Sanación",
+    "therapy": {
+      "title": "Terapia Individual",
+      "description": "Sesiones personalizadas para trabajar tus heridas específicas y patrones de codependencia.",
+      "duration": "60 minutos",
+      "price": "Consultar precio"
+    },
+    "workshops": {
+      "title": "Talleres Grupales",
+      "description": "Experimenta la sanación en comunidad con otros que comparten tu camino.",
+      "duration": "3 horas",
+      "price": "Próximas fechas"
+    }
+  },
+  "testimonials": {
+    "title": "Historias de Transformación",
+    "items": [
+      {
+        "name": "María González",
+        "text": "Aura me ayudó a entender patrones que llevaba repitiendo por años. Su enfoque es profundo y sanador.",
+        "rating": 5
+      },
+      {
+        "name": "Carmen Rodríguez",
+        "text": "Después de trabajar con Aura, finalmente pude establecer límites saludables en mis relaciones.",
+        "rating": 5
+      },
+      {
+        "name": "Ana López",
+        "text": "Sus libros y terapia me dieron las herramientas que necesitaba para sanar mi niña interior.",
+        "rating": 5
+      }
+    ]
+  },
+  "footer": {
+    "description": "Psicoterapeuta especializada en codependencia y heridas de la infancia.",
+    "contact": {
+      "email": "amorocodependencia@hotmail.com",
+      "phone": "+57 322 2108949",
+      "location": "México DF"
+    },
+    "social": {
+      "instagram": "https://instagram.com/auramedinawit",
+      "facebook": "https://facebook.com/AuraMedinaW",
+      "twitter": "https://twitter.com/AuraMedinaW"
+    }
+  },
+  "booking": {
+    "title": "Reserva tu Sesión",
+    "selectDate": "Selecciona una fecha",
+    "selectTime": "Selecciona una hora",
+    "confirm": "Confirmar Reserva"
+  },
+  "leadMagnet": {
+    "title": "Descarga Gratuita",
+    "subtitle": "Primer Capítulo: \"Sanando la Herida Materna\"",
+    "description": "Comienza tu viaje de sanación con este poderoso capítulo introductorio.",
+    "emailPlaceholder": "Tu correo electrónico",
+    "download": "Descargar Capítulo"
+  }
+}

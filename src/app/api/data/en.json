@@ -1,0 +1,93 @@
+{
+  "hero": {
+    "title": "Heal Your Heart, Transform Your Life",
+    "subtitle": "Specialist in Codependency and Childhood Wounds",
+    "description": "With over 35 years of experience, I guide you toward deep healing and self-love. Discover how to break toxic patterns and create healthy relationships.",
+    "ctaBook": "Book Session",
+    "ctaFree": "Free Chapter"
+  },
+  "books": {
+    "title": "Life-Transforming Books",
+    "subtitle": "Deep guides toward emotional healing",
+    "latest": "Latest Book",
+    "buyAmazon": "Buy on Amazon",
+    "preview": "Preview",
+    "items": [
+      {
+        "id": 1,
+        "title": "Healing the Maternal Wound",
+        "description": "A profound guide to heal the deepest wounds of our childhood and find inner peace.",
+        "amazonUrl": "https://amazon.com/sanando-herida-materna",
+        "isLatest": true
+      },
+      {
+        "id": 2,
+        "title": "Love or Codependency",
+        "description": "Discover the difference between true love and codependent patterns that damage our relationships.",
+        "amazonUrl": "https://amazon.com/amor-o-codependencia",
+        "isLatest": false
+      }
+    ]
+  },
+  "services": {
+    "title": "Healing Services",
+    "therapy": {
+      "title": "Individual Therapy",
+      "description": "Personalized sessions to work on your specific wounds and codependency patterns.",
+      "duration": "60 minutes",
+      "price": "Inquire for price"
+    },
+    "workshops": {
+      "title": "Group Workshops",
+      "description": "Experience healing in community with others who share your journey.",
+      "duration": "3 hours",
+      "price": "Upcoming dates"
+    }
+  },
+  "testimonials": {
+    "title": "Transformation Stories",
+    "items": [
+      {
+        "name": "María González",
+        "text": "Aura helped me understand patterns I had been repeating for years. Her approach is deep and healing.",
+        "rating": 5
+      },
+      {
+        "name": "Carmen Rodríguez",
+        "text": "After working with Aura, I was finally able to establish healthy boundaries in my relationships.",
+        "rating": 5
+      },
+      {
+        "name": "Ana López",
+        "text": "Her books and therapy gave me the tools I needed to heal my inner child.",
+        "rating": 5
+      }
+    ]
+  },
+  "footer": {
+    "description": "Psychotherapist specialized in codependency and childhood wounds.",
+    "contact": {
+      "email": "amorocodependencia@hotmail.com",
+      "phone": "+57 322 2108949",
+      "location": "Mexico City"
+    },
+    "social": {
+      "instagram": "https://instagram.com/auramedinawit",
+      "facebook": "https://facebook.com/AuraMedinaW",
+      "twitter": "https://twitter.com/AuraMedinaW"
+    }
+  },
+  "booking": {
+    "title": "Book Your Session",
+    "selectDate": "Select a date",
+    "selectTime": "Select a time",
+    "confirm": "Confirm Booking"
+  },
+  "leadMagnet": {
+    "title": "Free Download",
+    "subtitle": "First Chapter: \"Healing the Maternal Wound\"",
+    "description": "Begin your healing journey with this powerful introductory chapter.",
+    "emailPlaceholder": "Your email address",
+    "download": "Download Chapter"
+  }
+}
