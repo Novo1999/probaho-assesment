@@ -1,8 +1,7 @@
-// File: components/HeroSection.tsx
+import BookingButton from '@/app/components/BookingButton'
+import LeadMagnetButton from '@/app/components/LeadMagnetButton'
 import { HeroData } from '@/lib/types'
-import { Calendar, Download, Heart } from 'lucide-react'
-import BookingButton from './BookingButton'
-import LeadMagnetButton from './LeadMagnetButton'
+import { Heart } from 'lucide-react'
 
 interface HeroSectionProps {
   data: HeroData
