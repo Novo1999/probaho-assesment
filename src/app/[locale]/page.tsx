@@ -1,11 +1,12 @@
+import { Suspense } from 'react'
+
 import BooksSection from '@/app/components/BookSection'
-import Footer from '@/app/components/Footer'
 import Header from '@/app/components/Header'
 import HeroSection from '@/app/components/HeroSection'
+import LoadingSkeleton from '@/app/components/LoadingSkeleton'
 import ServicesSection from '@/app/components/ServicesSection'
 import TestimonialsSection from '@/app/components/TestimonialSection'
 import { getPageData } from '@/lib/api'
-import { Suspense } from 'react'
 
 type PageParams = {
   params: Promise<{
@@ -14,20 +15,29 @@ type PageParams = {
 }
 
 export default async function HomePage({ params }: PageParams) {
-  const data = await getPageData((await params).locale)
+  const { locale } = await params
+  const safeLocale = locale || 'es'
 
   return (
     <main className="min-h-screen bg-gradient-to-b from-peach-50 to-white">
       <Header />
 
-      <Suspense fallback={<div>Loading...</div>}>
-        <HeroSection data={data.hero} />
-        <BooksSection data={data.books} />
-        <ServicesSection data={data.services} />
-        <TestimonialsSection data={data.testimonials} />
+      <Suspense fallback={<LoadingSkeleton />}>
+        <PageContent locale={safeLocale} />
       </Suspense>
-
-      <Footer data={data.footer} />
     </main>
+  )
+}
+
+async function PageContent({ locale }: { locale: string }) {
+  const data = await getPageData(locale)
+
+  return (
+    <>
+      <HeroSection data={data.hero} />
+      <BooksSection data={data.books} />
+      <ServicesSection data={data.services} />
+      <TestimonialsSection data={data.testimonials} />
+    </>
   )
 }

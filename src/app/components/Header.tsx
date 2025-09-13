@@ -18,12 +18,12 @@ export default function Header() {
   }
 
   return (
-    <header className="sticky top-0 z-50 bg-white backdrop-blur-md border-b border-peach-200">
+    <header className="sticky top-0 z-50 backdrop-blur-md border-b border-peach-200">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
           <div className="flex items-center space-x-4">
             <div className="w-10 h-10 bg-gradient-to-br from-peach-200 to-sage-200 rounded-full flex items-center justify-center">
-              <Heart className="w-5 h-5 text-peach-700" />
+              <Heart className="w-5 h-5 text-red-500 fill-red-500" />
             </div>
             <h1 className="text-xl font-bold text-black">Aura María Medina</h1>
           </div>
