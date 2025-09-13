@@ -1,20 +1,22 @@
 'use client'
-
 import { Heart } from 'lucide-react'
-import { usePathname, useRouter } from 'next/navigation'
+import { useTranslations } from 'next-intl'
+import Link from 'next/link'
+import { useParams, usePathname, useRouter } from 'next/navigation'
 
 export default function Header() {
   const router = useRouter()
   const pathname = usePathname()
+  const params = useParams()
+  const t = useTranslations('navigation')
 
-  const currentLocale = pathname.startsWith('/en') ? 'en' : 'es'
+  const currentLocale = params.locale as string
 
   const handleLanguageChange = (locale: string) => {
-    if (locale === 'en') {
-      router.push('/en')
-    } else {
-      router.push('/es')
-    }
+    const currentHash = window.location.hash
+    // Remove current locale from pathname and add new one
+    const pathWithoutLocale = pathname.replace(`/${currentLocale}`, '')
+    router.push(`/${locale}${pathWithoutLocale}${currentHash}`)
   }
 
   return (
@@ -29,29 +31,25 @@ export default function Header() {
           </div>
 
           <nav className="hidden md:flex space-x-8">
-            <a href="#services" className="text-black hover:text-peach-600 transition-colors">
-              Servicios
-            </a>
-            <a href="#books" className="text-black hover:text-peach-600 transition-colors">
-              Libros
-            </a>
-            <a href="#testimonials" className="text-black hover:text-peach-600 transition-colors">
-              Testimonios
-            </a>
-            <a href="#blog" className="text-black hover:text-peach-600 transition-colors">
-              Blog
-            </a>
-            <a href="#contact" className="text-black hover:text-peach-600 transition-colors">
-              Contacto
-            </a>
+            <Link href="#services" className="text-black hover:text-peach-600 transition-colors">
+              {t('services')}
+            </Link>
+            <Link href="#books" className="text-black hover:text-peach-600 transition-colors">
+              {t('books')}
+            </Link>
+            <Link href="#testimonials" className="text-black hover:text-peach-600 transition-colors">
+              {t('testimonials')}
+            </Link>
+            <Link href="#blog" className="text-black hover:text-peach-600 transition-colors">
+              {t('blog')}
+            </Link>
+            <Link href="#contact" className="text-black hover:text-peach-600 transition-colors">
+              {t('contact')}
+            </Link>
           </nav>
 
           <div className="flex items-center space-x-4">
-            <select
-              value={currentLocale}
-              onChange={(e) => handleLanguageChange(e.target.value)}
-              className="border border-peach-200 rounded-lg px-3 py-1 text-sm bg-white text-black"
-            >
+            <select value={currentLocale} onChange={(e) => handleLanguageChange(e.target.value)} className="border border-peach-200 rounded-lg px-3 py-1 text-sm bg-white text-black">
               <option value="es">ES</option>
               <option value="en">EN</option>
             </select>

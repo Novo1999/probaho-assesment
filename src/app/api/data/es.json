@@ -1,4 +1,11 @@
 {
+  "navigation": {
+    "services": "Servicios",
+    "books": "Libros",
+    "testimonials": "Testimonios",
+    "blog": "Blog",
+    "contact": "Contacto"
+  },
   "hero": {
     "title": "Sana tu Corazón, Transforma tu Vida",
     "subtitle": "Especialista en Codependencia y Heridas de la Infancia",

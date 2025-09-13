@@ -1,4 +1,11 @@
 {
+  "navigation": {
+    "services": "Services",
+    "books": "Books",
+    "testimonials": "Testimonials",
+    "blog": "Blog",
+    "contact": "Contact"
+  },
   "hero": {
     "title": "Heal Your Heart, Transform Your Life",
     "subtitle": "Specialist in Codependency and Childhood Wounds",
