@@ -1,7 +1,8 @@
 'use client'
+import { NavigationMenu, NavigationMenuItem, NavigationMenuLink, NavigationMenuList } from '@/components/ui/navigation-menu'
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select'
 import { Heart } from 'lucide-react'
 import { useTranslations } from 'next-intl'
-import Link from 'next/link'
 import { useParams, usePathname, useRouter } from 'next/navigation'
 
 export default function Header() {
@@ -30,29 +31,46 @@ export default function Header() {
             <h1 className="text-xl font-bold text-black">Aura María Medina</h1>
           </div>
 
-          <nav className="hidden md:flex space-x-8">
-            <Link href="#services" className="text-black hover:text-peach-600 transition-colors">
-              {t('services')}
-            </Link>
-            <Link href="#books" className="text-black hover:text-peach-600 transition-colors">
-              {t('books')}
-            </Link>
-            <Link href="#testimonials" className="text-black hover:text-peach-600 transition-colors">
-              {t('testimonials')}
-            </Link>
-            <Link href="#blog" className="text-black hover:text-peach-600 transition-colors">
-              {t('blog')}
-            </Link>
-            <Link href="#contact" className="text-black hover:text-peach-600 transition-colors">
-              {t('contact')}
-            </Link>
-          </nav>
+          <NavigationMenu className="hidden md:flex">
+            <NavigationMenuList className="space-x-2">
+              <NavigationMenuItem>
+                <NavigationMenuLink href="#services" className="text-black hover:text-peach-600 transition-colors px-3 py-2 rounded-md hover:bg-peach-50">
+                  {t('services')}
+                </NavigationMenuLink>
+              </NavigationMenuItem>
+              <NavigationMenuItem>
+                <NavigationMenuLink href="#books" className="text-black hover:text-peach-600 transition-colors px-3 py-2 rounded-md hover:bg-peach-50">
+                  {t('books')}
+                </NavigationMenuLink>
+              </NavigationMenuItem>
+              <NavigationMenuItem>
+                <NavigationMenuLink href="#testimonials" className="text-black hover:text-peach-600 transition-colors px-3 py-2 rounded-md hover:bg-peach-50">
+                  {t('testimonials')}
+                </NavigationMenuLink>
+              </NavigationMenuItem>
+              <NavigationMenuItem>
+                <NavigationMenuLink href="#blog" className="text-black hover:text-peach-600 transition-colors px-3 py-2 rounded-md hover:bg-peach-50">
+                  {t('blog')}
+                </NavigationMenuLink>
+              </NavigationMenuItem>
+              <NavigationMenuItem>
+                <NavigationMenuLink href="#contact" className="text-black hover:text-peach-600 transition-colors px-3 py-2 rounded-md hover:bg-peach-50">
+                  {t('contact')}
+                </NavigationMenuLink>
+              </NavigationMenuItem>
+            </NavigationMenuList>
+          </NavigationMenu>
 
           <div className="flex items-center space-x-4">
-            <select value={currentLocale} onChange={(e) => handleLanguageChange(e.target.value)} className="border border-peach-200 rounded-lg px-3 py-1 text-sm bg-white text-black">
-              <option value="es">ES</option>
-              <option value="en">EN</option>
-            </select>
+            <Select value={currentLocale} onValueChange={handleLanguageChange}>
+              <SelectTrigger className="w-[70px] border-peach-200 bg-white text-black">
+                <SelectValue />
+              </SelectTrigger>
+              <SelectContent>
+                <SelectItem value="es">ES</SelectItem>
+                <SelectItem value="en">EN</SelectItem>
+              </SelectContent>
+            </Select>
           </div>
         </div>
       </div>

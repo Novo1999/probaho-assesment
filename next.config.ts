@@ -4,7 +4,7 @@ const withNextIntl = createNextIntlPlugin()
 
 const nextConfig: NextConfig = {
   images: {
-    domains: ['api.placeholder.com'],
+    domains: ['api.placeholder.com', 'm.media-amazon.com'],
   },
   env: {
     NEXT_PUBLIC_APP_URL: process.env.NEXT_PUBLIC_APP_URL || 'http://localhost:3001',

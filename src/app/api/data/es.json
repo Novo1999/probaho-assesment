@@ -24,20 +24,24 @@
         "id": 1,
         "title": "Sanando la Herida Materna",
         "description": "Una guía profunda para sanar las heridas más profundas de nuestra infancia y encontrar la paz interior.",
-        "amazonUrl": "https://amazon.com/sanando-herida-materna",
-        "isLatest": true
+        "amazonUrl": "https://www.amazon.com/Sanando-herida-materna-Healing-Maternal/dp/B09WPYB822/ref=sr_1_1?dib=eyJ2IjoiMSJ9._TV2cMOktzFavJx0Vi_Ko5hKKmxEANU_Wj20jbA-v2HzjSERSdKSidbaW4P8O6paSNTFic2Ijc0p7jOdDOPR7Q.WGuYXpOQR-fSfRSwThumNLhB5bVpqA1GI070NrYnias&dib_tag=se&qid=1757771319&refinements=p_27%3AAura+Medina+De+Wit&s=books&sr=1-1",
+        "isLatest": true,
+        "imageUrl": "https://m.media-amazon.com/images/I/71EBdjlCVjL._SL1500_.jpg"
       },
       {
         "id": 2,
-        "title": "Amor o Codependencia",
+        "title": "¿Amor o Codependencia?",
         "description": "Descubre la diferencia entre amor verdadero y patrones codependientes que dañan nuestras relaciones.",
-        "amazonUrl": "https://amazon.com/amor-o-codependencia",
-        "isLatest": false
+        "amazonUrl": "https://www.amazon.com/Amoro-codependencia-audiolibro/dp/B0868Y951C/ref=sr_1_3?dib=eyJ2IjoiMSJ9._TV2cMOktzFavJx0Vi_Ko5hKKmxEANU_Wj20jbA-v2HzjSERSdKSidbaW4P8O6paSNTFic2Ijc0p7jOdDOPR7Q.WGuYXpOQR-fSfRSwThumNLhB5bVpqA1GI070NrYnias&dib_tag=se&qid=1757771319&refinements=p_27%3AAura+Medina+De+Wit&s=books&sr=1-3",
+        "isLatest": false,
+        "imageUrl": "https://m.media-amazon.com/images/I/817SIHNO0vL._SL1500_.jpg"
       }
     ]
   },
   "services": {
     "title": "Servicios de Sanación",
+    "bookSession": "Reservar Sesión",
+    "moreInfo": "Más Información",
     "therapy": {
       "title": "Terapia Individual",
       "description": "Sesiones personalizadas para trabajar tus heridas específicas y patrones de codependencia.",
@@ -88,13 +92,32 @@
     "title": "Reserva tu Sesión",
     "selectDate": "Selecciona una fecha",
     "selectTime": "Selecciona una hora",
-    "confirm": "Confirmar Reserva"
+    "confirm": "Confirmar Reserva",
+    "selectedDate": "Fecha seleccionada",
+    "selectedTime": "Hora",
+    "form": {
+      "name": "Tu nombre completo",
+      "email": "Tu correo electrónico",
+      "phone": "Tu teléfono",
+      "message": "Cuéntame brevemente sobre lo que te gustaría trabajar...",
+      "nameRequired": "El nombre es requerido",
+      "emailRequired": "El correo electrónico es requerido",
+      "emailInvalid": "Por favor ingresa un correo electrónico válido",
+      "phoneRequired": "El teléfono es requerido"
+    },
+    "success": "¡Reserva confirmada exitosamente!",
+    "successMessage": "Te contactaremos pronto para confirmar los detalles de tu sesión."
   },
   "leadMagnet": {
     "title": "Descarga Gratuita",
     "subtitle": "Primer Capítulo: \"Sanando la Herida Materna\"",
     "description": "Comienza tu viaje de sanación con este poderoso capítulo introductorio.",
     "emailPlaceholder": "Tu correo electrónico",
-    "download": "Descargar Capítulo"
+    "download": "Descargar Capítulo",
+    "emailRequired": "El correo electrónico es requerido",
+    "emailInvalid": "Por favor ingresa un correo electrónico válido",
+    "success": "¡Descarga iniciada!",
+    "successMessage": "Revisa tu correo para el enlace de descarga.",
+    "disclaimer": "Al descargar, aceptas recibir emails ocasionales con contenido de valor. Puedes cancelar en cualquier momento."
   }
 }

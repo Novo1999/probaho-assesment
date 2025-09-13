@@ -1,4 +1,5 @@
 import Footer from '@/app/components/Footer'
+import { Toaster } from '@/components/ui/sonner'
 import { routing } from '@/i18n/routing'
 import { getPageData } from '@/lib/api'
 import type { Metadata } from 'next'
@@ -48,6 +49,7 @@ export default async function LocaleLayout({ children, params }: Props) {
         <NextIntlClientProvider>
           {children}
           <Footer data={data.footer} />
+          <Toaster />
         </NextIntlClientProvider>
       </div>
     </div>

@@ -1,38 +1,119 @@
 'use client'
 
+import { Button } from '@/components/ui/button'
+import {
+  DialogHeader,
+  DialogTitle,
+} from '@/components/ui/dialog'
+import { Input } from '@/components/ui/input'
 import { BookOpen } from 'lucide-react'
+import { useTranslations } from 'next-intl'
+import { useState } from 'react'
+import { toast } from 'sonner'
+
+interface Book {
+  id: number
+  title: string
+  description: string
+  amazonUrl: string
+  isLatest: boolean
+  imageUrl?: string
+}
 
 interface LeadMagnetModalProps {
   onClose: () => void
+  book?: Book
 }
 
-export default function LeadMagnetModal({ onClose }: LeadMagnetModalProps) {
-  return (
-    <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4 z-50">
-      <div className="bg-white rounded-2xl p-8 max-w-md w-full">
-        <div className="flex justify-between items-center mb-6">
-          <h4 className="text-2xl font-bold text-gray-900">Descarga Gratuita</h4>
-          <button onClick={onClose} className="text-gray-400 hover:text-gray-600">
-            ✕
-          </button>
-        </div>
+export default function LeadMagnetModal({ onClose, book }: LeadMagnetModalProps) {
+  const t = useTranslations('leadMagnet')
+  const [email, setEmail] = useState('')
+  const [error, setError] = useState('')
 
+  const validateEmail = (email: string) => {
+    return /\S+@\S+\.\S+/.test(email)
+  }
+
+  const handleDownload = () => {
+    if (!email.trim()) {
+      setError(t('emailRequired'))
+      return
+    }
+
+    if (!validateEmail(email)) {
+      setError(t('emailInvalid'))
+      return
+    }
+
+    // Handle download logic here
+    console.log('Download initiated for:', email, book ? `Book: ${book.title}` : 'General preview')
+
+    toast.success(t('success'), {
+      description: book ? `${book.title} - ${t('successMessage')}` : t('successMessage'),
+    })
+
+    onClose()
+  }
+
+  return (
+    <>
+      <DialogHeader>
+        <DialogTitle className="text-2xl font-bold text-gray-900">
+          {book ? `${t('title')} - ${book.title}` : t('title')}
+        </DialogTitle>
+      </DialogHeader>
+
+      <div className="py-4">
         <div className="text-center mb-6">
-          <div className="w-20 h-20 bg-gradient-to-br from-peach-100 to-sage-100 rounded-full flex items-center justify-center mx-auto mb-4">
-            <BookOpen className="w-10 h-10 text-peach-600" />
-          </div>
-          <h5 className="text-xl font-semibold text-gray-900 mb-2">Primer Capítulo: Sanando la Herida Materna</h5>
-          <p className="text-gray-600">Comienza tu viaje de sanación con este poderoso capítulo introductorio.</p>
+          {book && book.imageUrl ? (
+            <div className="w-20 h-28 mx-auto mb-4 rounded-lg overflow-hidden shadow-md">
+              <img
+                src={book.imageUrl}
+                alt={book.title}
+                className="w-full h-full object-cover"
+              />
+            </div>
+          ) : (
+            <div className="w-20 h-20 bg-gradient-to-br from-peach-100 to-sage-100 rounded-full flex items-center justify-center mx-auto mb-4">
+              <BookOpen className="w-10 h-10 text-peach-600" />
+            </div>
+          )}
+          <h5 className="text-xl font-semibold text-gray-900 mb-2">
+            {book ? `Vista Previa: ${book.title}` : t('subtitle')}
+          </h5>
+          <p className="text-gray-600">
+            {book ? `Obtén una vista previa de "${book.title}" y comienza tu viaje de sanación.` : t('description')}
+          </p>
         </div>
 
         <div className="space-y-4">
-          <input type="email" placeholder="Tu correo electrónico" className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-peach-200 focus:border-peach-400" />
+          <div>
+            <Input
+              type="email"
+              placeholder={t('emailPlaceholder')}
+              value={email}
+              onChange={(e) => {
+                setEmail(e.target.value)
+                setError('')
+              }}
+              className={`border-gray-300 focus-visible:ring-rose-200 focus-visible:border-rose-400 ${error ? 'border-red-500' : ''}`}
+            />
+            {error && <p className="text-red-500 text-sm mt-1">{error}</p>}
+          </div>
 
-          <button className="w-full bg-gradient-to-r from-peach-200 to-rose-200 text-peach-700 py-3 rounded-lg font-semibold hover:shadow-lg transition-all">Descargar Capítulo</button>
+          <Button
+            onClick={handleDownload}
+            className="w-full bg-gradient-to-r from-peach-200 to-rose-200 text-rose-800 hover:from-peach-300 hover:to-rose-300 hover:shadow-lg transition-all"
+            size="lg"
+          >
+            {t('download')}
+          </Button>
 
-          <p className="text-xs text-gray-500 text-center">Al descargar, aceptas recibir emails ocasionales con contenido de valor. Puedes cancelar en cualquier momento.</p>
+          <p className="text-xs text-gray-500 text-center">
+            {t('disclaimer')}
+          </p>
         </div>
       </div>
-    </div>
+    </>
   )
 }

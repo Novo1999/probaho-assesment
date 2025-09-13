@@ -1,121 +1,169 @@
 'use client'
 
+import { Button } from '@/components/ui/button'
+import { Calendar } from '@/components/ui/calendar'
+import {
+  DialogHeader,
+  DialogTitle,
+} from '@/components/ui/dialog'
+import { Input } from '@/components/ui/input'
+import { Textarea } from '@/components/ui/textarea'
+import { useTranslations } from 'next-intl'
 import { useState } from 'react'
+import { toast } from 'sonner'
 
 interface BookingModalProps {
   onClose: () => void
 }
 
 export default function BookingModal({ onClose }: BookingModalProps) {
-  const [selectedDate, setSelectedDate] = useState<number | null>(null)
+  const t = useTranslations('booking')
+  const [selectedDate, setSelectedDate] = useState<Date | undefined>(undefined)
   const [selectedTime, setSelectedTime] = useState<string | null>(null)
+  const [name, setName] = useState('')
+  const [email, setEmail] = useState('')
+  const [phone, setPhone] = useState('')
+  const [message, setMessage] = useState('')
+  const [errors, setErrors] = useState<{[key: string]: string}>({})
 
   const availableTimes = ['09:00', '10:00', '11:00', '14:00', '15:00', '16:00', '17:00']
 
-  const CalendarComponent = () => {
-    const today = new Date()
-    const daysInMonth = new Date(today.getFullYear(), today.getMonth() + 1, 0).getDate()
-    const firstDayOfMonth = new Date(today.getFullYear(), today.getMonth(), 1).getDay()
+  const validateForm = () => {
+    const newErrors: {[key: string]: string} = {}
 
-    const days = []
-
-    // Empty cells for days before month starts
-    for (let i = 0; i < firstDayOfMonth; i++) {
-      days.push(<div key={`empty-${i}`} className="h-10"></div>)
+    if (!name.trim()) {
+      newErrors.name = t('form.nameRequired')
     }
 
-    // Days of the month
-    for (let day = 1; day <= daysInMonth; day++) {
-      const isToday = day === today.getDate()
-      const isPast = day < today.getDate()
-      const isSelected = selectedDate === day
-
-      days.push(
-        <button
-          key={day}
-          onClick={() => !isPast && setSelectedDate(day)}
-          disabled={isPast}
-          className={`h-10 w-10 rounded-lg text-sm font-medium transition-all ${
-            isPast ? 'text-gray-300 cursor-not-allowed' : isSelected ? 'bg-rose-200 text-rose-800' : isToday ? 'bg-sage-100 text-sage-800' : 'hover:bg-peach-100 text-gray-700'
-          }`}
-        >
-          {day}
-        </button>
-      )
+    if (!email.trim()) {
+      newErrors.email = t('form.emailRequired')
+    } else if (!/\S+@\S+\.\S+/.test(email)) {
+      newErrors.email = t('form.emailInvalid')
     }
 
-    return (
-      <div className="grid grid-cols-7 gap-2">
-        {['Do', 'Lu', 'Ma', 'Mi', 'Ju', 'Vi', 'Sa'].map((day) => (
-          <div key={day} className="h-10 flex items-center justify-center text-sm font-medium text-gray-500">
-            {day}
-          </div>
-        ))}
-        {days}
-      </div>
-    )
+    if (!phone.trim()) {
+      newErrors.phone = t('form.phoneRequired')
+    }
+
+    setErrors(newErrors)
+    return Object.keys(newErrors).length === 0
+  }
+
+  const handleConfirm = () => {
+    if (!validateForm()) {
+      return
+    }
+
+    // Handle booking confirmation logic here
+    console.log('Booking confirmed:', { selectedDate, selectedTime, name, email, phone, message })
+
+    toast.success(t('success'), {
+      description: t('successMessage'),
+    })
+
+    onClose()
   }
 
   return (
-    <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4 z-50">
-      <div className="bg-white rounded-2xl p-8 max-w-md w-full max-h-[90vh] overflow-y-auto">
-        <div className="flex justify-between items-center mb-6">
-          <h4 className="text-2xl font-bold text-gray-900">Reserva tu Sesión</h4>
-          <button onClick={onClose} className="text-gray-400 hover:text-gray-600">
-            ✕
-          </button>
+    <>
+      <DialogHeader>
+        <DialogTitle className="text-2xl font-bold text-gray-900">{t('title')}</DialogTitle>
+      </DialogHeader>
+
+      <div className="space-y-6 py-4">
+        <div>
+          <h5 className="font-semibold text-gray-700 mb-3">{t('selectDate')}</h5>
+          <Calendar
+            mode="single"
+            selected={selectedDate}
+            onSelect={setSelectedDate}
+            disabled={(date) => date < new Date() || date < new Date("1900-01-01")}
+            className="rounded-md border w-full"
+          />
         </div>
 
-        <div className="space-y-6">
+        {selectedDate && (
           <div>
-            <h5 className="font-semibold text-gray-700 mb-3">Selecciona una fecha</h5>
-            <CalendarComponent />
+            <h5 className="font-semibold text-gray-700 mb-3">{t('selectTime')}</h5>
+            <div className="grid grid-cols-3 gap-2">
+              {availableTimes.map((time) => (
+                <Button
+                  key={time}
+                  variant={selectedTime === time ? "default" : "outline"}
+                  onClick={() => setSelectedTime(time)}
+                  className={`text-sm ${selectedTime === time ? 'bg-rose-200 text-rose-800 hover:bg-rose-300' : 'hover:bg-rose-50'}`}
+                >
+                  {time}
+                </Button>
+              ))}
+            </div>
           </div>
+        )}
 
-          {selectedDate && (
-            <div>
-              <h5 className="font-semibold text-gray-700 mb-3">Selecciona una hora</h5>
-              <div className="grid grid-cols-3 gap-2">
-                {availableTimes.map((time) => (
-                  <button
-                    key={time}
-                    onClick={() => setSelectedTime(time)}
-                    className={`py-2 px-4 rounded-lg text-sm font-medium transition-all ${selectedTime === time ? 'bg-peach-200 text-peach-700' : 'bg-gray-100 text-gray-700 hover:bg-peach-100'}`}
-                  >
-                    {time}
-                  </button>
-                ))}
-              </div>
+        {selectedDate && selectedTime && (
+          <div className="space-y-4">
+            <div className="p-4 bg-rose-50 rounded-lg">
+              <p className="text-sm text-gray-600">
+                {t('selectedDate')}: <span className="font-semibold">{selectedDate.toLocaleDateString()}</span>
+              </p>
+              <p className="text-sm text-gray-600">
+                {t('selectedTime')}: <span className="font-semibold">{selectedTime}</span>
+              </p>
             </div>
-          )}
 
-          {selectedDate && selectedTime && (
-            <div className="space-y-4">
-              <div className="p-4 bg-peach-50 rounded-lg">
-                <p className="text-sm text-gray-600">
-                  Fecha seleccionada: <span className="font-semibold">{selectedDate} de mes</span>
-                </p>
-                <p className="text-sm text-gray-600">
-                  Hora: <span className="font-semibold">{selectedTime}</span>
-                </p>
+            <div className="space-y-3">
+              <div>
+                <Input
+                  type="text"
+                  placeholder={t('form.name')}
+                  value={name}
+                  onChange={(e) => setName(e.target.value)}
+                  className={`border-gray-300 focus-visible:ring-rose-200 focus-visible:border-rose-400 ${errors.name ? 'border-red-500' : ''}`}
+                />
+                {errors.name && <p className="text-red-500 text-sm mt-1">{errors.name}</p>}
               </div>
 
-              <div className="space-y-3">
-                <input type="text" placeholder="Tu nombre completo" className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-peach-200 focus:border-peach-400" />
-                <input type="email" placeholder="Tu correo electrónico" className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-peach-200 focus:border-peach-400" />
-                <input type="tel" placeholder="Tu teléfono" className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-peach-200 focus:border-peach-400" />
-                <textarea
-                  placeholder="Cuéntame brevemente sobre lo que te gustaría trabajar..."
-                  rows={3}
-                  className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-peach-200 focus:border-peach-400"
-                ></textarea>
+              <div>
+                <Input
+                  type="email"
+                  placeholder={t('form.email')}
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                  className={`border-gray-300 focus-visible:ring-rose-200 focus-visible:border-rose-400 ${errors.email ? 'border-red-500' : ''}`}
+                />
+                {errors.email && <p className="text-red-500 text-sm mt-1">{errors.email}</p>}
               </div>
 
-              <button className="w-full bg-gradient-to-r from-peach-200 to-rose-200 text-peach-700 py-3 rounded-lg font-semibold hover:shadow-lg transition-all">Confirmar Reserva</button>
+              <div>
+                <Input
+                  type="tel"
+                  placeholder={t('form.phone')}
+                  value={phone}
+                  onChange={(e) => setPhone(e.target.value)}
+                  className={`border-gray-300 focus-visible:ring-rose-200 focus-visible:border-rose-400 ${errors.phone ? 'border-red-500' : ''}`}
+                />
+                {errors.phone && <p className="text-red-500 text-sm mt-1">{errors.phone}</p>}
+              </div>
+
+              <Textarea
+                placeholder={t('form.message')}
+                rows={3}
+                value={message}
+                onChange={(e) => setMessage(e.target.value)}
+                className="border-gray-300 focus-visible:ring-rose-200 focus-visible:border-rose-400"
+              />
             </div>
-          )}
-        </div>
+
+            <Button
+              onClick={handleConfirm}
+              className="w-full bg-gradient-to-r from-peach-200 to-rose-200 text-rose-800 hover:from-peach-300 hover:to-rose-300 hover:shadow-lg transition-all"
+              size="lg"
+            >
+              {t('confirm')}
+            </Button>
+          </div>
+        )}
       </div>
-    </div>
+    </>
   )
 }

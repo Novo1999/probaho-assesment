@@ -4,6 +4,7 @@ export interface Book {
   description: string
   amazonUrl: string
   isLatest: boolean
+  imageUrl?: string
 }
 
 export interface Testimonial {
