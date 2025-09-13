@@ -1,7 +1,9 @@
 import { Metadata } from 'next'
 import { Suspense } from 'react'
 
+import BlogSection from '@/app/components/BlogSection'
 import BooksSection from '@/app/components/BookSection'
+import ContactSection from '@/app/components/ContactSection'
 import Header from '@/app/components/Header'
 import HeroSection from '@/app/components/HeroSection'
 import LoadingSkeleton from '@/app/components/LoadingSkeleton'
@@ -47,7 +49,6 @@ async function PageContent({ locale }: { locale: string }) {
 
   return (
     <>
-      {/* Article wrapper for better SEO structure */}
       <article>
         <HeroSection data={data.hero} />
 
@@ -59,8 +60,16 @@ async function PageContent({ locale }: { locale: string }) {
           <ServicesSection data={data.services} />
         </section>
 
+        <section id="blogs" aria-labelledby="blogs-heading">
+          <BlogSection />
+        </section>
+
         <section id="testimonios" aria-labelledby="testimonials-heading">
           <TestimonialsSection data={data.testimonials} />
+        </section>
+
+        <section id="contacto" aria-labelledby="contact-heading">
+          <ContactSection />
         </section>
       </article>
     </>
