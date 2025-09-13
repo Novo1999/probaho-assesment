@@ -9,7 +9,7 @@ import { getTranslations } from 'next-intl/server'
 import { Suspense } from 'react'
 
 export default async function HomePage({ params: { locale } }: { params: { locale: string } }) {
-  const t = await getTranslations('home')
+  // const t = await getTranslations('home')
   const data = await getPageData(locale)
 
   return (

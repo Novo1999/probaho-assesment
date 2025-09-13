@@ -1,9 +1,11 @@
 export async function getPageData(locale: string = 'es') {
   try {
-    const response = await fetch(`${process.env.NEXT_PUBLIC_APP_URL}/api/data/${locale}`, {
+    const response = await fetch(`${'http://localhost:3000'}/api/data/${locale}`, {
       cache: 'force-cache',
       next: { revalidate: 3600 },
     })
+
+    console.log(response)
 
     if (!response.ok) {
       throw new Error('Failed to fetch data')

@@ -2,15 +2,24 @@ import { promises as fs } from 'fs'
 import { NextRequest, NextResponse } from 'next/server'
 import path from 'path'
 
-export async function GET(request: NextRequest, { params }: { params: { locale: string } }) {
+type RouteParams = {
+  params: Promise<{
+    locale: string
+  }>
+}
+
+export async function GET(request: NextRequest, { params }: RouteParams) {
   try {
-    const locale = params.locale || 'es'
-    const jsonDirectory = path.join(process.cwd(), 'data')
-    const fileContents = await fs.readFile(jsonDirectory + `/${locale}.json`, 'utf8')
+    const { locale } = await params
+    const safeLocale = locale || 'es'
+
+    const jsonDirectory = path.join(process.cwd(), 'src', 'app', 'api', 'data')
+    const fileContents = await fs.readFile(path.join(jsonDirectory, `${safeLocale}.json`), 'utf8')
     const data = JSON.parse(fileContents)
 
     return NextResponse.json(data)
   } catch (error) {
+    console.error('Error loading data:', error)
     return NextResponse.json({ error: 'Failed to load data' }, { status: 500 })
   }
 }
