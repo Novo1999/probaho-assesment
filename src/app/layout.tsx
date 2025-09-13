@@ -1,6 +1,4 @@
-// File: app/layout.tsx
 import type { Metadata } from 'next'
-import { NextIntlClientProvider } from 'next-intl'
 import { Inter } from 'next/font/google'
 import './globals.css'
 
@@ -16,7 +14,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="es">
       <body className={inter.className}>
-        <NextIntlClientProvider>{children}</NextIntlClientProvider>
+        <div>{children}</div>
       </body>
     </html>
   )

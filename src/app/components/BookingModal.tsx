@@ -1,4 +1,3 @@
-// File: components/BookingModal.tsx
 'use client'
 
 import { useState } from 'react'

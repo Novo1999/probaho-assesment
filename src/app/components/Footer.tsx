@@ -1,4 +1,3 @@
-// File: components/Footer.tsx
 import { FooterData } from '@/lib/types'
 import { Heart, Mail, MapPin, Phone } from 'lucide-react'
 
