@@ -1,6 +1,6 @@
+import { Metadata } from 'next'
 import { Suspense } from 'react'
 
-import BlogSection from '@/app/components/BlogSection'
 import BooksSection from '@/app/components/BookSection'
 import Header from '@/app/components/Header'
 import HeroSection from '@/app/components/HeroSection'
@@ -9,13 +9,25 @@ import ServicesSection from '@/app/components/ServicesSection'
 import TestimonialsSection from '@/app/components/TestimonialSection'
 import { getPageData } from '@/lib/api'
 
-type PageParams = {
-  params: Promise<{
-    locale: string
-  }>
+export async function generateMetadata(): Promise<Metadata> {
+  return {
+    title: 'Inicio - Sana tu Corazón, Transforma tu Vida',
+    description: 'Descubre cómo romper patrones tóxicos y crear relaciones sanas con Aura María Medina de Wit, psicoterapeuta con 35+ años de experiencia especializada en codependencia.',
+    openGraph: {
+      title: 'Aura María Medina de Wit - Sana tu Corazón, Transforma tu Vida',
+      description: 'Descubre cómo romper patrones tóxicos y crear relaciones sanas con nuestra psicoterapeuta especializada.',
+      url: 'https://auramedinadewitpsicoterapia.com',
+      images: ['/og-home.jpg'],
+    },
+  }
 }
 
-export default async function HomePage({ params }: PageParams) {
+type PageProps = {
+  params: Promise<{ locale?: string }>
+  searchParams: Promise<{ [key: string]: string | string[] | undefined }>
+}
+
+export default async function HomePage({ params }: PageProps) {
   const { locale } = await params
   const safeLocale = locale || 'es'
 
@@ -35,11 +47,22 @@ async function PageContent({ locale }: { locale: string }) {
 
   return (
     <>
-      <HeroSection data={data.hero} />
-      <BooksSection data={data.books} />
-      <ServicesSection data={data.services} />
-      <BlogSection />
-      <TestimonialsSection data={data.testimonials} />
+      {/* Article wrapper for better SEO structure */}
+      <article>
+        <HeroSection data={data.hero} />
+
+        <section id="libros" aria-labelledby="books-heading">
+          <BooksSection data={data.books} />
+        </section>
+
+        <section id="servicios" aria-labelledby="services-heading">
+          <ServicesSection data={data.services} />
+        </section>
+
+        <section id="testimonios" aria-labelledby="testimonials-heading">
+          <TestimonialsSection data={data.testimonials} />
+        </section>
+      </article>
     </>
   )
 }
