@@ -111,6 +111,130 @@
     "success": "¡Reserva confirmada exitosamente!",
     "successMessage": "Te contactaremos pronto para confirmar los detalles de tu sesión."
   },
+  "blog": {
+    "title": "Últimos Pensamientos e Insights",
+    "subtitle": "Explora artículos sobre sanación, crecimiento personal y conocimientos terapéuticos para apoyar tu camino hacia el bienestar emocional.",
+    "readMore": "Leer más",
+    "viewAll": "Ver Todos los Artículos",
+    "categories": {
+      "codependency": "Codependencia",
+      "innerChild": "Niño Interior",
+      "therapy": "Terapia",
+      "relationships": "Relaciones",
+      "mindfulness": "Atención Plena",
+      "psychology": "Psicología"
+    },
+    "posts": [
+      {
+        "id": 1,
+        "title": "Sanando la Codependencia: Un Viaje hacia el Autodescubrimiento",
+        "excerpt": "Entendiendo los patrones de codependencia y cómo liberarse de dinámicas relacionales dañinas.",
+        "date": "2024-03-15",
+        "readTime": "8 min de lectura",
+        "category": "codependency",
+        "imageUrl": "/blog/codependency.jpg"
+      },
+      {
+        "id": 2,
+        "title": "Trabajo con el Niño Interior: Reconectando con tu Ser Auténtico",
+        "excerpt": "Explorando cómo las heridas de la infancia moldean nuestras relaciones adultas y el camino hacia la sanación.",
+        "date": "2024-03-10",
+        "readTime": "6 min de lectura",
+        "category": "innerChild",
+        "imageUrl": "/blog/inner-child.jpg"
+      },
+      {
+        "id": 3,
+        "title": "El Poder de la Terapia Transpersonal en la Sanación Moderna",
+        "excerpt": "Integrando enfoques espirituales y psicológicos para una transformación más profunda y crecimiento personal.",
+        "date": "2024-03-05",
+        "readTime": "10 min de lectura",
+        "category": "therapy",
+        "imageUrl": "/blog/transpersonal.jpg"
+      },
+      {
+        "id": 4,
+        "title": "Construyendo Límites Saludables en las Relaciones",
+        "excerpt": "Aprende estrategias prácticas para establecer y mantener límites que apoyen tu bienestar emocional.",
+        "date": "2024-02-28",
+        "readTime": "7 min de lectura",
+        "category": "relationships",
+        "imageUrl": "/blog/boundaries.jpg"
+      },
+      {
+        "id": 5,
+        "title": "Prácticas de Atención Plena para la Regulación Emocional",
+        "excerpt": "Técnicas simples pero poderosas de mindfulness para ayudar a manejar emociones abrumadoras y encontrar paz interior.",
+        "date": "2024-02-20",
+        "readTime": "5 min de lectura",
+        "category": "mindfulness",
+        "imageUrl": "/blog/mindfulness.jpg"
+      },
+      {
+        "id": 6,
+        "title": "Entendiendo los Estilos de Apego y su Impacto",
+        "excerpt": "Cómo tus experiencias tempranas de apego influyen en tus relaciones adultas y estrategias para la sanación.",
+        "date": "2024-02-15",
+        "readTime": "9 min de lectura",
+        "category": "psychology",
+        "imageUrl": "/blog/attachment.jpg"
+      }
+    ]
+  },
+  "contact": {
+    "title": "Ponte en Contacto",
+    "subtitle": "¿Listo para comenzar tu camino hacia la sanación y el crecimiento personal? Estoy aquí para apoyarte en cada paso del camino.",
+    "form": {
+      "title": "Enviar un Mensaje",
+      "firstName": "Nombre",
+      "lastName": "Apellido",
+      "email": "Correo Electrónico",
+      "phone": "Teléfono (Opcional)",
+      "subject": "Asunto",
+      "message": "Mensaje",
+      "required": "*",
+      "placeholders": {
+        "firstName": "Tu nombre",
+        "lastName": "Tu apellido",
+        "email": "tu.correo@ejemplo.com",
+        "phone": "+57 (322) 210-8949",
+        "subject": "¿Cómo puedo ayudarte?",
+        "message": "Cuéntame un poco sobre lo que estás buscando..."
+      },
+      "validation": {
+        "firstNameRequired": "El nombre es requerido",
+        "lastNameRequired": "El apellido es requerido",
+        "emailRequired": "Por favor ingresa un correo electrónico válido",
+        "subjectRequired": "El asunto es requerido",
+        "messageRequired": "El mensaje debe tener al menos 10 caracteres"
+      },
+      "sending": "Enviando...",
+      "send": "Enviar Mensaje",
+      "success": "¡Mensaje enviado exitosamente! Te contactaré pronto.",
+      "error": "Error al enviar el mensaje. Por favor intenta de nuevo."
+    },
+    "info": {
+      "title": "Información de Contacto",
+      "email": "Correo",
+      "phone": "Teléfono",
+      "location": "Ubicación",
+      "hours": "Horarios de Oficina",
+      "locationDetails": {
+        "online": "Sesiones En Línea y Presenciales",
+        "address": "México DF y Virtual Mundial"
+      },
+      "schedule": {
+        "weekdays": "Lunes - Viernes: 9:00 AM - 7:00 PM",
+        "saturday": "Sábado: 10:00 AM - 4:00 PM",
+        "sunday": "Domingo: Cerrado"
+      }
+    },
+    "consultation": {
+      "title": "Programa una Consulta",
+      "description": "¿Listo para dar el primer paso? Reserva una consulta gratuita de 15 minutos para discutir tus necesidades y ver si somos una buena opción.",
+      "button": "Programar Consulta Gratuita"
+    }
+  },
   "leadMagnet": {
     "title": "Descarga Gratuita",
     "subtitle": "Primer Capítulo: \"Sanando la Herida Materna\"",
@@ -122,5 +246,16 @@
     "success": "¡Descarga iniciada!",
     "successMessage": "Revisa tu correo para el enlace de descarga.",
     "disclaimer": "Al descargar, aceptas recibir emails ocasionales con contenido de valor. Puedes cancelar en cualquier momento."
+  },
+  "loading": {
+    "brandName": "Aura María Medina",
+    "brandTitle": "Psicoterapeuta Especializada",
+    "completed": "completado",
+    "quotes": [
+      "Sanando el corazón, transformando la vida...",
+      "El amor propio es el primer paso hacia la libertad...",
+      "Rompiendo patrones, construyendo nuevos caminos...",
+      "Tu sanación importa, tu bienestar importa..."
+    ]
   }
 }

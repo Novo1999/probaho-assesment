@@ -13,9 +13,9 @@ export default function HeroSection({ data }: HeroSectionProps) {
       <div className="max-w-7xl mx-auto">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           <div>
-            <h2 className="text-5xl font-bold text-gray-900 mb-6 leading-tight">{data.title}</h2>
-            <p className="text-xl text-peach-700 mb-6 font-medium">{data.subtitle}</p>
-            <p className="text-lg text-gray-600 mb-8 leading-relaxed">{data.description}</p>
+            <h2 className="text-4xl sm:text-5xl font-bold text-gray-900 mb-6 leading-tight">{data.title}</h2>
+            <p className="text-lg sm:text-xl text-peach-700 mb-6 font-medium">{data.subtitle}</p>
+            <p className="text-md sm:text-lg text-gray-600 mb-8 leading-relaxed">{data.description}</p>
 
             <div className="flex flex-col sm:flex-row gap-4">
               <BookingButton text={data.ctaBook} />

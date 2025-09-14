@@ -5,10 +5,6 @@ export async function getPageData(locale: string = 'es') {
       next: { revalidate: 3600 },
     })
 
-    if (!response.ok) {
-      throw new Error('Failed to fetch data')
-    }
-
     return await response.json()
   } catch (error) {
     console.error('Error fetching page data:', error)

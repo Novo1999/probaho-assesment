@@ -16,7 +16,7 @@ export default function ServicesSection({ data }: ServicesSectionProps) {
     <section id="services" className="py-20">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
-          <h3 className="text-4xl font-bold text-gray-900 mb-4">{data.title}</h3>
+          <h3 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">{data.title}</h3>
         </div>
 
         <div className="grid md:grid-cols-2 gap-8">
@@ -42,7 +42,7 @@ export default function ServicesSection({ data }: ServicesSectionProps) {
               <span className="text-sm text-gray-500">{data.workshops.duration}</span>
               <span className="font-semibold text-sage-700">{data.workshops.price}</span>
             </div>
-            <button className="w-full border-2 border-sage-200 text-sage-700 py-3 rounded-lg font-semibold hover:bg-sage-100 transition-all">{t('moreInfo')}</button>
+            <button className="w-full border-2 border-sage-200 text-sage-700 text-sm sm:text-lg py-3 rounded-lg font-semibold hover:bg-sage-100 transition-all">{t('moreInfo')}</button>
           </div>
         </div>
       </div>

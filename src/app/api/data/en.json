@@ -111,6 +111,130 @@
     "success": "Booking confirmed successfully!",
     "successMessage": "We'll contact you soon to confirm your session details."
   },
+  "blog": {
+    "title": "Latest Insights & Thoughts",
+    "subtitle": "Explore articles on healing, personal growth, and therapeutic insights to support your journey toward emotional well-being.",
+    "readMore": "Read more",
+    "viewAll": "View All Articles",
+    "categories": {
+      "codependency": "Codependency",
+      "innerChild": "Inner Child",
+      "therapy": "Therapy",
+      "relationships": "Relationships",
+      "mindfulness": "Mindfulness",
+      "psychology": "Psychology"
+    },
+    "posts": [
+      {
+        "id": 1,
+        "title": "Healing from Codependency: A Journey to Self-Discovery",
+        "excerpt": "Understanding the patterns of codependency and how to break free from unhealthy relationship dynamics.",
+        "date": "2024-03-15",
+        "readTime": "8 min read",
+        "category": "codependency",
+        "imageUrl": "/blog/codependency.jpg"
+      },
+      {
+        "id": 2,
+        "title": "Inner Child Work: Reconnecting with Your Authentic Self",
+        "excerpt": "Exploring how childhood wounds shape our adult relationships and the path to healing through inner child work.",
+        "date": "2024-03-10",
+        "readTime": "6 min read",
+        "category": "innerChild",
+        "imageUrl": "/blog/inner-child.jpg"
+      },
+      {
+        "id": 3,
+        "title": "The Power of Transpersonal Therapy in Modern Healing",
+        "excerpt": "Integrating spiritual and psychological approaches for deeper transformation and personal growth.",
+        "date": "2024-03-05",
+        "readTime": "10 min read",
+        "category": "therapy",
+        "imageUrl": "/blog/transpersonal.jpg"
+      },
+      {
+        "id": 4,
+        "title": "Building Healthy Boundaries in Relationships",
+        "excerpt": "Learn practical strategies for setting and maintaining boundaries that support your emotional well-being.",
+        "date": "2024-02-28",
+        "readTime": "7 min read",
+        "category": "relationships",
+        "imageUrl": "/blog/boundaries.jpg"
+      },
+      {
+        "id": 5,
+        "title": "Mindfulness Practices for Emotional Regulation",
+        "excerpt": "Simple yet powerful mindfulness techniques to help manage overwhelming emotions and find inner peace.",
+        "date": "2024-02-20",
+        "readTime": "5 min read",
+        "category": "mindfulness",
+        "imageUrl": "/blog/mindfulness.jpg"
+      },
+      {
+        "id": 6,
+        "title": "Understanding Attachment Styles and Their Impact",
+        "excerpt": "How your early attachment experiences influence your adult relationships and strategies for healing.",
+        "date": "2024-02-15",
+        "readTime": "9 min read",
+        "category": "psychology",
+        "imageUrl": "/blog/attachment.jpg"
+      }
+    ]
+  },
+  "contact": {
+    "title": "Get in Touch",
+    "subtitle": "Ready to begin your journey toward healing and personal growth? I'm here to support you every step of the way.",
+    "form": {
+      "title": "Send a Message",
+      "firstName": "First Name",
+      "lastName": "Last Name",
+      "email": "Email Address",
+      "phone": "Phone Number (Optional)",
+      "subject": "Subject",
+      "message": "Message",
+      "required": "*",
+      "placeholders": {
+        "firstName": "Your first name",
+        "lastName": "Your last name",
+        "email": "your.email@example.com",
+        "phone": "+1 (555) 123-4567",
+        "subject": "How can I help you?",
+        "message": "Tell me a bit about what you're looking for..."
+      },
+      "validation": {
+        "firstNameRequired": "First name is required",
+        "lastNameRequired": "Last name is required",
+        "emailRequired": "Please enter a valid email address",
+        "subjectRequired": "Subject is required",
+        "messageRequired": "Message must be at least 10 characters long"
+      },
+      "sending": "Sending...",
+      "send": "Send Message",
+      "success": "Message sent successfully! I will get back to you soon.",
+      "error": "Failed to send message. Please try again."
+    },
+    "info": {
+      "title": "Contact Information",
+      "email": "Email",
+      "phone": "Phone",
+      "location": "Location",
+      "hours": "Office Hours",
+      "locationDetails": {
+        "online": "Online & In-Person Sessions",
+        "address": "Miami, FL & Virtual Worldwide"
+      },
+      "schedule": {
+        "weekdays": "Monday - Friday: 9:00 AM - 7:00 PM",
+        "saturday": "Saturday: 10:00 AM - 4:00 PM",
+        "sunday": "Sunday: Closed"
+      }
+    },
+    "consultation": {
+      "title": "Schedule a Consultation",
+      "description": "Ready to take the first step? Book a complimentary 15-minute consultation to discuss your needs and see if we're a good fit.",
+      "button": "Schedule Free Consultation"
+    }
+  },
   "leadMagnet": {
     "title": "Free Download",
     "subtitle": "First Chapter: \"Healing the Maternal Wound\"",
@@ -122,5 +246,16 @@
     "success": "Download started!",
     "successMessage": "Check your email for the download link.",
     "disclaimer": "By downloading, you agree to receive occasional emails with valuable content. You can unsubscribe at any time."
+  },
+  "loading": {
+    "brandName": "Aura María Medina",
+    "brandTitle": "Specialized Psychotherapist",
+    "completed": "completed",
+    "quotes": [
+      "Healing the heart, transforming life...",
+      "Self-love is the first step toward freedom...",
+      "Breaking patterns, building new paths...",
+      "Your healing matters, your well-being matters..."
+    ]
   }
 }

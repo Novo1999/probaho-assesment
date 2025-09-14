@@ -32,7 +32,7 @@ export default function LeadMagnetButton({ text, className, book }: LeadMagnetBu
         <Button
           variant="outline"
           className={cn(
-            'border-2 border-sage-200 text-sage-700 hover:bg-sage-100 !px-10 py-4 rounded-xl font-semibold text-lg transition-all duration-300 flex items-center justify-center h-full hover:shadow-lg',
+            'border-2 border-sage-200 text-sage-700 hover:bg-sage-100 !px-10 py-4 rounded-xl font-semibold transition-all text-sm sm:text-lg duration-300 flex items-center justify-center h-full hover:shadow-lg',
             className
           )}
         >

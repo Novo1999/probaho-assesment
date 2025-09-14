@@ -41,13 +41,13 @@ export default function Footer({ data }: FooterProps) {
           <div>
             <h5 className="font-semibold mb-4">{data.socialTitle}</h5>
             <div className="space-y-2 text-gray-300">
-              <a href={data.social.instagram} className="block hover:text-peach-300">
+              <a target="__blank" href={data.social.instagram} className="block hover:text-peach-300">
                 Instagram
               </a>
-              <a href={data.social.facebook} className="block hover:text-peach-300">
+              <a target="__blank" href={data.social.facebook} className="block hover:text-peach-300">
                 Facebook
               </a>
-              <a href={data.social.twitter} className="block hover:text-peach-300">
+              <a target="__blank" href={data.social.twitter} className="block hover:text-peach-300">
                 Twitter
               </a>
             </div>

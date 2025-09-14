@@ -2,17 +2,14 @@
 
 import { BookOpen, Heart, Sparkles } from 'lucide-react'
 import { useEffect, useState } from 'react'
+import { useTranslations } from 'next-intl'
 
 export default function LoadingPage() {
+  const t = useTranslations('loading')
   const [currentQuote, setCurrentQuote] = useState(0)
   const [progress, setProgress] = useState(0)
 
-  const inspirationalQuotes = [
-    'Sanando el corazón, transformando la vida...',
-    'El amor propio es el primer paso hacia la libertad...',
-    'Rompiendo patrones, construyendo nuevos caminos...',
-    'Tu sanación importa, tu bienestar importa...',
-  ]
+  const inspirationalQuotes = t.raw('quotes') as string[]
 
   useEffect(() => {
     // Progress animation
@@ -56,8 +53,8 @@ export default function LoadingPage() {
             </div>
           </div>
 
-          <h1 className="text-2xl font-bold text-gray-900 mb-2">Aura María Medina</h1>
-          <p className="text-lg text-peach-700 font-medium">Psicoterapeuta Especializada</p>
+          <h1 className="text-2xl font-bold text-gray-900 mb-2">{t('brandName')}</h1>
+          <p className="text-lg text-peach-700 font-medium">{t('brandTitle')}</p>
         </div>
 
         {/* Loading Progress */}
@@ -65,7 +62,7 @@ export default function LoadingPage() {
           <div className="w-full bg-gray-200 rounded-full h-2 mb-4 overflow-hidden">
             <div className="bg-gradient-to-r from-peach-200 to-sage-200 h-2 rounded-full transition-all duration-300 ease-out" style={{ width: `${progress}%` }}></div>
           </div>
-          <p className="text-sm text-gray-500">{progress}% completado</p>
+          <p className="text-sm text-gray-500">{progress}% {t('completed')}</p>
         </div>
 
         {/* Inspirational Quote */}

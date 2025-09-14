@@ -21,7 +21,7 @@ export default function BookingButton({ text }: BookingButtonProps) {
     <Dialog open={isModalOpen} onOpenChange={setIsModalOpen}>
       <DialogTrigger asChild>
         <Button
-          className="bg-gradient-to-r from-peach-200 to-rose-200 text-peach-700 !px-10 py-4 rounded-xl font-semibold text-lg hover:shadow-lg transition-all duration-300 flex items-center justify-center hover:from-peach-300 hover:to-rose-300 h-full"
+          className="bg-gradient-to-r from-peach-200 to-rose-200 text-peach-700 !px-10 py-4 rounded-xl font-semibold text-sm sm:text-lg hover:shadow-lg transition-all duration-300 flex items-center justify-center hover:from-peach-300 hover:to-rose-300 h-full"
         >
           <Calendar className="w-5 h-5 mr-2" />
           {text}

@@ -20,11 +20,11 @@ export default function BooksSection({ data }: BooksSectionProps) {
     <section id="books" className="py-20 bg-beige-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
-          <h3 className="text-4xl font-bold text-gray-900 mb-4">{data.title}</h3>
-          <p className="text-xl text-gray-600">{data.subtitle}</p>
+          <h3 className="text-3xl sm:text-4xl  font-bold text-gray-900 mb-4">{data.title}</h3>
+          <p className="text-lg sm:text-xl text-gray-600">{data.subtitle}</p>
         </div>
 
-        <div className="grid lg:grid-cols-2 gap-8 lg:gap-12">
+        <div className="grid lg:grid-cols-2 grid-cols-1 gap-8 lg:gap-12">
           {data.items.map((book) => (
             <div key={book.id} className="bg-white rounded-2xl p-6 lg:p-8 shadow-lg hover:shadow-xl transition-shadow">
               {book.isLatest ? (
@@ -51,12 +51,12 @@ export default function BooksSection({ data }: BooksSectionProps) {
                   <h4 className="text-xl sm:text-2xl font-bold text-gray-900 mb-3 lg:mb-4">{book.title}</h4>
                   <p className="text-gray-600 mb-4 lg:mb-6 leading-relaxed text-sm sm:text-base">{book.description}</p>
 
-                  <div className="space-y-3 flex items-start justify-between gap-4 xl:gap-4">
+                  <div className="flex flex-wrap flex-col *:w-full sm:flex-row sm:*:w-fit lg:justify-center xl:justify-start items-start gap-4 xl:gap-4">
                     <Link
                       href={{ pathname: book.amazonUrl }}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="w-full bg-gradient-to-r from-peach-200 to-rose-200 text-rose-800 !px-4 py-3 lg:py-3 rounded-xl font-semibold text-sm hover:shadow-lg transition-all duration-300 whitespace-nowrap flex items-center justify-center h-full"
+                      className="w-fit bg-gradient-to-r from-peach-200 to-rose-200 text-rose-800 !px-4 py-3 lg:py-3 rounded-xl font-semibold text-sm hover:shadow-lg transition-all duration-300 whitespace-nowrap flex items-center justify-center h-full"
                     >
                       {data.buyAmazon}
                     </Link>

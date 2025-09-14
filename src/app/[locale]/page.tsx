@@ -1,4 +1,3 @@
-import { Metadata } from 'next'
 import { Suspense } from 'react'
 
 import BlogSection from '@/app/components/BlogSection'
@@ -10,19 +9,6 @@ import LoadingSkeleton from '@/app/components/LoadingSkeleton'
 import ServicesSection from '@/app/components/ServicesSection'
 import TestimonialsSection from '@/app/components/TestimonialSection'
 import { getPageData } from '@/lib/api'
-
-export async function generateMetadata(): Promise<Metadata> {
-  return {
-    title: 'Inicio - Sana tu Corazón, Transforma tu Vida',
-    description: 'Descubre cómo romper patrones tóxicos y crear relaciones sanas con Aura María Medina de Wit, psicoterapeuta con 35+ años de experiencia especializada en codependencia.',
-    openGraph: {
-      title: 'Aura María Medina de Wit - Sana tu Corazón, Transforma tu Vida',
-      description: 'Descubre cómo romper patrones tóxicos y crear relaciones sanas con nuestra psicoterapeuta especializada.',
-      url: 'https://auramedinadewitpsicoterapia.com',
-      images: ['/og-home.jpg'],
-    },
-  }
-}
 
 type PageProps = {
   params: Promise<{ locale?: string }>

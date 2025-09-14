@@ -7,9 +7,8 @@ const nextConfig: NextConfig = {
     domains: ['api.placeholder.com', 'm.media-amazon.com'],
   },
   env: {
-    NEXT_PUBLIC_APP_URL: process.env.NEXT_PUBLIC_APP_URL || 'http://localhost:3001',
+    NEXT_PUBLIC_APP_URL: process.env.NEXT_PUBLIC_APP_URL || 'http://localhost:3000',
   },
-  typedRoutes: true,
 }
 
 export default withNextIntl(nextConfig)
